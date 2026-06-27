@@ -39,7 +39,7 @@ Our automation utilizes modern Playwright best practices to ensure high speed, s
 
 ### Key Pillars:
 1. **Page Object Model (POM)**: Located in [beeceptorPage.js](./tests/beeceptorPage.js). It fully encapsulates selectors and complex console interactions (opening/closing modals, form configuration, row deletion).
-2. **Preserved Authentication Session**: Authentication is handled once in a dedicated setup project ([auth.setup.js](./tests/auth.setup.js)). The logged-in session cookies/storage are saved locally in `.auth/user.json` and reused across all E2E tests, avoiding repetitive login flows.
+2. **Automated & Preserved Authentication**: In Beeceptor, console permissions require active authentication, but browser sessions naturally expire over time or after periods of inactivity. To prevent tests from failing due to expired credentials when the suite is not run frequently, we automated the login flow inside a dedicated setup project ([auth.setup.js](./tests/auth.setup.js)). It automatically logs in, captures the browser context cookies/storage state, and saves it to `.auth/user.json`. The E2E tests then reuse this session, ensuring the suite remains stable, runs fast, and avoids login rate-limiting.
 3. **Resilient Self-Healing Selectors**:
    - **Pre-Test Cleanup**: Automatically detects and deletes any lingering test rules in the `beforeAll` hook to prevent hitting Beeceptor's **free tier limit of 3 rules**.
    - **Self-Healing Modal Navigation**: Checks if a form is open inside the Mock Rules modal; if so, it clicks "Cancel" automatically to return to the rules list view, ensuring dropdown carets are always clickable.
