@@ -71,7 +71,7 @@ BEECEPTOR_ENDPOINT=pw-callout-test
 
 ### 3. Run the Automation
 
-* **Headed Mode (Watch the browser execute live on screen - Recommended for recording demo videos)**:
+* **Headed Mode (Watch the browser execute live on screen)**:
   This opens the browser automatically, navigating to the console, configuring rules, and deleting them step-by-step:
   ```bash
   npx playwright test --project=beeceptor-tests --headed
