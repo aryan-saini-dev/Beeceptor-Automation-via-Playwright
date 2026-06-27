@@ -63,6 +63,7 @@ Create a `.env` file in the root directory:
 cp .env.example .env
 ```
 Populate `.env` with your Beeceptor credentials and test endpoint name:
+```env
 BEECEPTOR_EMAIL=your_email@example.com
 BEECEPTOR_PASSWORD=your_password
 BEECEPTOR_ENDPOINT=pw-callout-test
